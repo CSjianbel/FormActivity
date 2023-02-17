@@ -15,7 +15,6 @@ const formVerification = () => {
     // Verify age
     const minAge = 21;
     const bday = new Date(document.getElementById("birthdate").value);
-    console.log(bday.getFullYear() - (new Date).getFullYear())
     if (bday == "Invalid Date") {
         document.getElementById("invalidAge").innerHTML = bday;
     } else if (Math.abs(bday.getFullYear() - (new Date).getFullYear()) < minAge) {
