@@ -1,9 +1,3 @@
-const calculateAge = (bday) => { 
-    const ageDifMs = Date.now() - bday.getTime();
-    const ageDate = new Date(ageDifMs); 
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-}
-
 const formVerification = () => {
     document.getElementById("successAlert").innerHTML = "";
     document.getElementById("invalidPass").innerHTML = "";
@@ -19,11 +13,12 @@ const formVerification = () => {
     }
 
     // Verify age
-    const minAge = 22;
+    const minAge = 21;
     const bday = new Date(document.getElementById("birthdate").value);
+    console.log(bday.getFullYear() - (new Date).getFullYear())
     if (bday == "Invalid Date") {
         document.getElementById("invalidAge").innerHTML = bday;
-    } else if (calculateAge(bday) < minAge) {
+    } else if (Math.abs(bday.getFullYear() - (new Date).getFullYear()) < minAge) {
         document.getElementById("invalidAge").innerHTML = "Minors are not allowed!";
         error = true;
     }
